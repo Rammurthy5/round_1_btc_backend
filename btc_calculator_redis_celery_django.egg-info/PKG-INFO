@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: btc-calculator-redis-celery-django
+Version: 1.0
+Summary: Allows to get quotes on latest BTC / USD updates from Stock market
+Home-page: UNKNOWN
+Author: Team Rainbow
+Author-email: dummyemail@email.com
+License: BSD
+Description: # Django Backend
+        
+        ## Running locally
+        - Initialize a python virtual environment by running `python3 -m venv <envName>`
+        - Start the python virtual environment by running `source <envName>/bin/activate`
+        - Install dependencies by running `pip install -r requirements.txt`
+        - Create a sqlite3 database and migrate table by running `python manage.py migrate`
+        - Run server by running `python manage.py runserver`
+        - to exit python virtual environment run `deactivate`
+        
+        ## Running locally w/Docker
+        - Fill up `.env`
+        - Run application using docker-compose by running `docker-compose up --build`
+        
+        ## calling api
+        - to generate a new api key using curl run `curl -X GET http://localhost:8000/genkey`
+        - to get the latest quote using curl run `curl -H 'CUSTOM-TOKEN:<token_you_generated>' http://localhost:8000/api/v1/quotes`
+        - to update the latest quote using curl run `curl -H 'CUSTOM-TOKEN:<token_you_generated>' -X POST http://localhost:8000/api/v1/quotes`
+        
+Keywords: btc-calculator-redis-celery-django
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
