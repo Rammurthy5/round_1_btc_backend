@@ -1,0 +1,11 @@
+asgiref==3.3.1
+coverage==6.0.2
+Django==3.1.7
+djangorestframework
+pytz==2021.1
+python-dotenv==0.19.1
+sqlparse==0.4.1
+psycopg2-binary
+celery==5.0.5
+redis==3.5.3
+requests

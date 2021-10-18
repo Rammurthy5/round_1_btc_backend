@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 from constants import ALPHAVANTAGE_KEY
 from utils import HashApiKey
-from .exchange_rate_service import ExchangeRateService
+from .exchange_rate_service import client_code
 from .models import ExchangeRate, ApiKey
 
 
@@ -25,11 +25,11 @@ def generate_apikey(request):
 def quotes(request):
     if request.method == 'GET':
         try:
-            return Response(ExchangeRateService.get_latest_quote())
+            return Response(client_code(api_token=os.environ.get(ALPHAVANTAGE_KEY)).get_latest_quote())
         except ExchangeRate.DoesNotExist:
             raise Http404
     elif request.method == 'POST':
-        exchange_rate_service = ExchangeRateService(api_token=os.environ.get(ALPHAVANTAGE_KEY))
+        exchange_rate_service = client_code(api_token=os.environ.get(ALPHAVANTAGE_KEY))
         exchange_rate_service.update_latest_quote()
         return Response('success')
     else:
